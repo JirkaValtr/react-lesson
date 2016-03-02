@@ -15,10 +15,25 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleRemoteTodo = this.handleRemoteTodo.bind(this)
+    this.handleCrossOut = this.handleCrossOut.bind(this)
+    this.handleJoke = this.handleJoke.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
   }
 
   handleChange(event) {
     this.props.newTodoChange(event.target.value)
+  }
+  
+  handleCrossOut(event, id) {
+    this.props.crossOutTodo(event.target.checked, id)
+  }
+  
+  handleJoke(id) {
+    this.props.fetchJoke(id)
+  }
+  
+  handleRemove(id) {
+    this.props.removeTodo(id)
   }
 
   handleKeyDown(event) {
@@ -67,7 +82,10 @@ class App extends React.Component {
         <section className="main">
           <input className="toggle-all" type="checkbox" />
           <label htmlFor="toggle-all">Mark all as complete</label>
-          <Todos todos={this.props.todos} />
+          <Todos todos={this.props.todos}
+                 handleCrossOut={this.handleCrossOut} 
+                 handleJoke={this.handleJoke}
+                 handleRemove={this.handleRemove}/>
         </section>
         <footer className="footer">
           <TodosCounter count={this.props.activeTodosCount} />

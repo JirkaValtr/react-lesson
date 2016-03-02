@@ -9,6 +9,8 @@ export default (props) => {
         <p>
           <IndexLink to="/" activeClassName="active">Todos</IndexLink>
           <span className="separator">|</span>
+          <Link to="/contact" activeClassName="active">Contact</Link>
+          <span className="separator">|</span>
           <Link to="/about" activeClassName="active">About</Link>
         </p>
         <p>Double-click to edit a todo</p>

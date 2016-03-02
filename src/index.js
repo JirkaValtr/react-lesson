@@ -6,6 +6,7 @@ import {render} from 'react-dom'
 import Layout from './containers/layout'
 import App from './containers/app'
 import About from './containers/about'
+import Contact from './containers/contact'
 
 import { Provider } from 'react-redux'
 import { configureStore } from './store'
@@ -28,6 +29,7 @@ render(
     <Router history={browserHistory}>
       <Route path='/' component={Layout}>
         <IndexRoute component={App} />
+        <Route path='/contact' component={Contact} />
         <Route path='/about' component={About} />
         {/* TODO: do option param like in rails path='(/:filter)' */}
         <Route path='/:filter' component={App} />
